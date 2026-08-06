@@ -1,75 +1,53 @@
-```ruby
-███████╗ ██████╗ █████╗ ███╗   ██╗███╗   ██╗███████╗██████╗
-██╔════╝██╔════╝██╔══██╗████╗  ██║████╗  ██║██╔════╝██╔══██╗
-███████╗██║     ███████║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝
-╚════██║██║     ██╔══██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗
-███████║╚██████╗██║  ██║██║ ╚████║██║ ╚████║███████╗██║  ██║
-╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
-```
+# API Security Scanner
 
-[![Cybersecurity Projects](https://img.shields.io/badge/Cybersecurity--Projects-Project%20%231-red?style=flat&logo=github)](https://github.com/CarterPerez-dev/Cybersecurity-Projects/tree/main/PROJECTS/intermediate/api-security-scanner)
-[![Python](https://img.shields.io/badge/Python-3.13+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org)
-[![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)
-[![License: AGPLv3](https://img.shields.io/badge/License-AGPL_v3-purple.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat&logo=docker)](https://www.docker.com)
-[![OWASP](https://img.shields.io/badge/OWASP-API_Top_10-orange?style=flat)](https://owasp.org/API-Security/)
+A full-stack tool that scans REST APIs against the OWASP API Security Top 10 vulnerability categories, with a live scan dashboard and detailed per-endpoint reports.
 
-> Full-stack API vulnerability scanner targeting the OWASP API Security Top 10 with configurable scan modules and a React dashboard.
+**Live demo:** [api-security-scanner-jkjc.vercel.app](https://api-security-scanner-jkjc.vercel.app)
 
-<p align="center">
-  <a href="https://youtu.be/CvuvFfh24cE">
-    <img src="https://img.shields.io/badge/Watch_on-YouTube-FF0000?logo=youtube&logoColor=white" alt="Watch on YouTube">
-  </a>
-</p>
+Built as the final project for the SecuredXWave Cybersecurity Internship Program (Web Pentest track).
 
-<p align="center">
-  <a href="https://youtu.be/CvuvFfh24cE">
-    <img src="https://img.youtube.com/vi/CvuvFfh24cE/maxresdefault.jpg" alt="Video Thumbnail" width="800">
-  </a>
-</p>
+## What it does
 
-*Learn docs here: [learn modules](#learn).*
-
-## What It Does
-
-- Scans REST APIs against OWASP API Security Top 10 vulnerability categories
-- Tests for authentication bypass, injection flaws, IDOR, and rate limiting weaknesses
-- SQLi, authentication, IDOR, and rate limit scanner modules with configurable payloads
-- JWT auth with bcrypt password hashing and session management
-- Scan history tracking with detailed vulnerability reports per endpoint
-- Full React dashboard for configuring scans and reviewing results
-
-## Quick Start
-
-```bash
-docker compose up -d
-```
-
-Visit `http://localhost:8080` to open the dashboard.
-
-> [!TIP]
-> This project uses [`just`](https://github.com/casey/just) as a command runner. Type `just` to see all available commands.
->
-> Install: `curl -sSf https://just.systems/install.sh | bash -s -- --to ~/.local/bin`
+- Scans a target API URL for common vulnerabilities across four categories: rate limiting, authentication, SQL injection, and IDOR/BOLA
+- Accepts an optional auth token to test authenticated endpoints
+- Returns severity-rated findings (High/Medium/Low) with details and fix recommendations
+- Stores scan history per user account
+- JWT-based authentication with secure password hashing
 
 ## Stack
 
-**Backend:** FastAPI, SQLAlchemy, PostgreSQL, Alembic, httpx, aiohttp
-
 **Frontend:** React, TypeScript, Vite
+**Backend:** FastAPI, SQLAlchemy, PostgreSQL, Python 3.13
+**Deployment:** Vercel (frontend), Render (backend + database)
 
-## Learn
+## How it works
 
-This project includes step-by-step learning materials covering security theory, architecture, and implementation.
+1. User signs up / logs in — backend issues a JWT token
+2. User submits a target API URL and selects which vulnerability categories to test
+3. Backend scanner modules send crafted requests to the target and analyze responses
+4. Results are saved to the database and displayed with severity ratings and remediation advice
 
-| Module | Topic |
-|--------|-------|
-| [00 - Overview](learn/00-OVERVIEW.md) | Prerequisites and quick start |
-| [01 - Concepts](learn/01-CONCEPTS.md) | Security theory and real-world breaches |
-| [02 - Architecture](learn/02-ARCHITECTURE.md) | System design and data flow |
-| [03 - Implementation](learn/03-IMPLEMENTATION.md) | Code walkthrough |
-| [04 - Challenges](learn/04-CHALLENGES.md) | Extension ideas and exercises |
+## Running locally
 
+Backend:
+```bash
+cd backend
+pip install -e .
+uvicorn main:app --reload
+```
+
+Frontend:
+```bash
+cd frontend
+pnpm install
+pnpm dev
+```
+
+You'll need a PostgreSQL database and a `.env` file with `DATABASE_URL` and `SECRET_KEY` set — see `backend/config.py` for the full list of settings.
+
+## Author
+
+Built by Sohaib as part of the SecuredXWave Cybersecurity Internship Program 2025, based on an open-source project foundation.
 
 ## License
 
