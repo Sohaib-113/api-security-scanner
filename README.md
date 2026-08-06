@@ -47,7 +47,7 @@ You'll need a PostgreSQL database and a `.env` file with `DATABASE_URL` and `SEC
 
 ## Author
 
-Built by Sohaib as part of the SecuredXWave Cybersecurity Internship Program 2025, based on an open-source project foundation.
+Built by Sohaib as part of the SecuredXWave Cybersecurity Internship Program 2026, based on an open-source project foundation.
 
 ## License
 
