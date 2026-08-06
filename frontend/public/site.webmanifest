@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "API Security Scanner"
+  "short_name": "APISec"
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
