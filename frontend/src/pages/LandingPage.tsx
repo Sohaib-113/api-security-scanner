@@ -36,9 +36,9 @@ export const LandingPage = (): React.ReactElement => {
   API Security Scanner
 </div>
 
-        <h1 className="landing__title">
-          Every API you ship has a paper trail of weaknesses.
-        </h1>
+        <h1 className="landing__title" style={{ textTransform: 'uppercase' }}>
+  Every API you ship has a paper trail of weaknesses.
+</h1>
         <p className="landing__subtitle">
           Broken auth, exposed records, missing rate limits — most APIs leak
           something. Point ShieldAPI at an endpoint and see exactly what an
