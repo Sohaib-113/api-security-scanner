@@ -25,12 +25,15 @@ export const DashboardPage = (): React.ReactElement => {
       <div className="dashboard__container">
         <header className="dashboard__header">
           <div className="dashboard__header-content">
-            <div className="dashboard__header-text">
-              <h1 className="dashboard__title">API Security Scanner</h1>
-              <p className="dashboard__subtitle">
-                Test your APIs for security vulnerabilities
-              </p>
-            </div>
+           <div className="dashboard__header-text">
+  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+    <img src="/logo.png" alt="Logo" style={{ width: '36px', height: '36px' }} />
+    <h1 className="dashboard__title">API Security Scanner</h1>
+  </div>
+  <p className="dashboard__subtitle">
+    Test your APIs for security vulnerabilities
+  </p>
+</div>
             <div className="dashboard__header-actions">
               <span className="dashboard__user-email">{user?.email}</span>
               <Button onClick={handleLogout} variant="secondary">
