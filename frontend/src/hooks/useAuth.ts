@@ -95,7 +95,7 @@ export const useLogin = (): UseMutationResult<
 
       setAuth(user, data.access_token)
       toast.success('Login successful!')
-      void navigate('/')
+      void navigate('/dashboard')
     },
     onError: createAuthErrorHandler(AUTH_ERROR_CONTEXTS.LOGIN),
   })
