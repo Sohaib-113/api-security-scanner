@@ -122,10 +122,11 @@ export const LoginForm = (): React.ReactElement => {
 
   return (
     <form className="auth-form" onSubmit={handleSubmit}>
-      <div className="auth-form__header">
-        <h1 className="auth-form__title">Welcome Back</h1>
-        <p className="auth-form__subtitle">Sign in to your account</p>
-      </div>
+     <div className="auth-form__header">
+  <img src="/logo.png" alt="Logo" style={{ width: '48px', height: '48px', margin: '0 auto 12px', display: 'block' }} />
+  <h1 className="auth-form__title">Welcome Back</h1>
+  <p className="auth-form__subtitle">Sign in to your account</p>
+</div>
 
       <div className="auth-form__fields">
         <Input
