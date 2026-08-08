@@ -31,7 +31,10 @@ export const LandingPage = (): React.ReactElement => {
   return (
     <div className="landing">
       <div className="landing__container">
-        <div className="landing__badge">◈ ShieldAPI</div>
+        <div className="landing__badge">
+  <img src="/logo.png" alt="Logo" style={{ width: '20px', height: '20px', verticalAlign: 'middle', marginRight: '8px' }} />
+  API Security Scanner
+</div>
 
         <h1 className="landing__title">
           Every API you ship has a paper trail of weaknesses.
