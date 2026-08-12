@@ -27,7 +27,7 @@ export const ScanResultsPage = (): React.ReactElement => {
     return (
       <div className="scan-results__error">
         <p>Failed to load scan results. Please try again.</p>
-        <Link to="/" className="scan-results__back-link">
+        <Link to="/dashboard" className="scan-results__back-link">
           Back to Dashboard
         </Link>
       </div>
@@ -38,7 +38,7 @@ export const ScanResultsPage = (): React.ReactElement => {
     return (
       <div className="scan-results__error">
         <p>Scan not found.</p>
-        <Link to="/" className="scan-results__back-link">
+        <Link to="/dashboard" className="scan-results__back-link">
           Back to Dashboard
         </Link>
       </div>
@@ -55,7 +55,7 @@ export const ScanResultsPage = (): React.ReactElement => {
     <div className="scan-results">
       <div className="scan-results__container">
         <header className="scan-results__header">
-          <Link to="/" className="scan-results__back-link">
+          <Link to="/dashboard" className="scan-results__back-link">
             ← Back to Dashboard
           </Link>
           <h1 className="scan-results__title">Scan Results</h1>
