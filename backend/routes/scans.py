@@ -2,7 +2,7 @@
 ©AngelaMos | 2025
 Scan routes - create, retrieve, and manage security scans
 """
-
+from fastapi.concurrency import run_in_threadpool
 from fastapi import (
     APIRouter,
     Depends,
@@ -43,7 +43,9 @@ async def create_scan(
     """
     Create and execute a new security scan
     """
-    return ScanService.run_scan(db, current_user.id, scan_request)
+    return await run_in_threadpool(
+        ScanService.run_scan, db, current_user.id, scan_request
+    )
 
 
 @router.get(
